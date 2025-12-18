@@ -10,109 +10,125 @@
 
     <ImageView
         android:id="@+id/main_activity"
-        android:layout_width="202dp"
-        android:layout_height="202dp"
-        app:srcCompat="@drawable/maijn_activity"
-        tools:layout_editor_absoluteX="206dp"
-        tools:layout_editor_absoluteY="74dp" />
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        app:layout_constraintVertical_bias="0.526"
+        app:srcCompat="@drawable/maijn_activity" />
 
     <ImageView
         android:id="@+id/activity_main"
-        android:layout_width="202dp"
-        android:layout_height="202dp"
-        app:srcCompat="@drawable/activity_main"
-        tools:layout_editor_absoluteX="4dp"
-        tools:layout_editor_absoluteY="74dp" />
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline5"
+        app:layout_constraintEnd_toStartOf="@+id/main_activity"
+        app:layout_constraintHorizontal_bias="0.717"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        app:layout_constraintVertical_bias="0.526"
+        app:srcCompat="@drawable/activity_main" />
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="202dp"
-        android:layout_height="202dp"
-        app:srcCompat="@drawable/pantalla"
-        tools:layout_editor_absoluteX="206dp"
-        tools:layout_editor_absoluteY="276dp" />
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline5"
+        app:layout_constraintVertical_bias="0.233"
+        app:srcCompat="@drawable/pantalla" />
 
     <ImageView
         android:id="@+id/andorid_manifest"
-        android:layout_width="202dp"
-        android:layout_height="202dp"
-        app:srcCompat="@drawable/manifest"
-        tools:layout_editor_absoluteX="4dp"
-        tools:layout_editor_absoluteY="276dp" />
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toStartOf="@+id/imageView6"
+        app:layout_constraintHorizontal_bias="0.717"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline5"
+        app:layout_constraintVertical_bias="0.233"
+        app:srcCompat="@drawable/manifest" />
 
     <TextView
         android:id="@+id/kotlin_para_diseñadores"
-        android:layout_width="263dp"
+        android:layout_width="294dp"
         android:layout_height="32dp"
+        android:layout_marginEnd="28dp"
         android:fontFamily="sans-serif-medium"
-        android:text="Kotlin para diseñadores"
+        android:text="Android para diseñadores"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        tools:layout_editor_absoluteX="74dp"
-        tools:layout_editor_absoluteY="28dp" />
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="38dp"
-        android:layout_height="41dp"
-        app:srcCompat="@drawable/x"
-        tools:layout_editor_absoluteX="369dp"
-        tools:layout_editor_absoluteY="19dp" />
-
-    <ImageView
-        android:id="@+id/constructor"
-        android:layout_width="120dp"
-        android:layout_height="100dp"
-        app:srcCompat="@drawable/constructor"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="478dp" />
-
-    <ImageView
-        android:id="@+id/metodo"
-        android:layout_width="120dp"
-        android:layout_height="100dp"
-        app:srcCompat="@drawable/metodo"
-        tools:layout_editor_absoluteX="145dp"
-        tools:layout_editor_absoluteY="478dp" />
+        android:textSize="21sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.722" />
 
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="41dp"
         android:layout_height="41dp"
-        app:srcCompat="@drawable/logo_kotlin"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="19dp" />
+        android:layout_marginTop="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toStartOf="@+id/kotlin_para_diseñadores"
+        app:layout_constraintHorizontal_bias="0.432"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.705"
+        app:srcCompat="@drawable/logo_kotlin" />
 
     <ImageView
         android:id="@+id/instancia"
-        android:layout_width="120dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
-        app:srcCompat="@drawable/instanmcia"
-        tools:layout_editor_absoluteX="265dp"
-        tools:layout_editor_absoluteY="478dp" />
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        app:srcCompat="@drawable/instanmcia" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="145dp"
-        tools:layout_editor_absoluteY="657dp" />
+    <ImageView
+        android:id="@+id/metodo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="28dp"
+        app:layout_constraintEnd_toStartOf="@+id/instancia"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        app:srcCompat="@drawable/metodo" />
+
+    <ImageView
+        android:id="@+id/constructor"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toStartOf="@+id/metodo"
+        app:layout_constraintHorizontal_bias="0.967"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        app:srcCompat="@drawable/constructor" />
 
     <EditText
         android:id="@+id/textView2"
-        android:layout_width="350dp"
-        android:layout_height="147dp"
-        android:hint="haz tu búsqueda"
-        android:text="TextView"
+        android:layout_width="353dp"
+        android:layout_height="170dp"
         android:textColor="#FFFCFC"
         android:textColorHighlight="#F6E5E5"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="718dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
-    <TextView
+    <SearchView
         android:id="@+id/textView3"
         android:layout_width="352dp"
         android:layout_height="41dp"
@@ -121,17 +137,45 @@
         android:textColor="#FFFCFC"
         android:textColorHighlight="#F6E5E5"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="601dp" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        app:layout_constraintVertical_bias="0.4" />
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="409dp"
-        android:layout_height="72dp"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.07" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.52413017" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.68" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.76" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
