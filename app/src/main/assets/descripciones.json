@@ -3,34 +3,34 @@
     {
       "id": "constraintlayout",
       "titulo": "ConstraintLayout",
-      "descripcion": "Es el 'organizador' de la pantalla. Te permite posicionar cada elemento creando 'relaciones' o 'anclas' con otros elementos o con los bordes. Es el equivalente al Auto Layout de Figma."
+      "descripcion": "Es el 'organizador' de la pantalla.\n\nTe permite posicionar cada elemento creando 'relaciones' o 'anclas' con otros elementos o con los bordes.\n\nEs el equivalente al Auto Layout de Figma."
     },
     {
       "id": "linearlayout",
       "titulo": "LinearLayout",
-      "descripcion": "Un organizador simple que apila los elementos uno detrás de otro de forma secuencial, ya sea en una columna vertical o en una fila horizontal."
+      "descripcion": "Un organizador simple que apila los elementos uno detrás de otro de forma secuencial.\n\nPuede ser en una columna vertical o en una fila horizontal."
     },
     {
       "id": "framelayout",
       "titulo": "FrameLayout",
-      "descripcion": "Un contenedor para superponer elementos (como capas). El último elemento añadido se dibuja encima de los anteriores."
+      "descripcion": "Un contenedor para superponer elementos (como capas).\n\nEl último elemento añadido se dibuja encima de los anteriores."
     }
   ],
   "botones": [
     {
       "id": "button",
       "titulo": "Button",
-      "descripcion": "El botón estándar con texto para acciones claras como 'Aceptar' o 'Siguiente'."
+      "descripcion": "El botón estándar con texto para acciones claras.\n\n(ej: 'Aceptar' o 'Siguiente')"
     },
     {
       "id": "imagebutton",
       "titulo": "ImageButton",
-      "descripcion": "Un botón que solo contiene un icono o imagen. Ideal para botones de 'Cerrar' o redes sociales."
+      "descripcion": "Un botón que solo contiene un icono o imagen.\n\nIdeal para botones de 'Cerrar' o redes sociales."
     },
     {
       "id": "fab",
       "titulo": "FloatingActionButton",
-      "descripcion": "El botón circular que flota sobre la interfaz para la acción principal, como redactar un mensaje."
+      "descripcion": "El botón circular que flota sobre la interfaz para la acción principal.\n\n(ej: redactar un mensaje)"
     }
   ],
   "componentes_ui": [
@@ -42,7 +42,7 @@
     {
       "id": "edittext",
       "titulo": "EditText",
-      "descripcion": "Campo de entrada donde el usuario puede escribir texto, correos o contraseñas."
+      "descripcion": "Campo de entrada donde el usuario puede escribir texto.\n\n(ej: correos o contraseñas)"
     },
     {
       "id": "imageview",
@@ -59,24 +59,29 @@
     {
       "id": "toast",
       "titulo": "Toast",
-      "descripcion": "Un pequeño mensaje flotante que aparece en la parte inferior y desaparece solo tras unos segundos. Útil para avisos rápidos."
+      "descripcion": "Un pequeño mensaje flotante que aparece en la parte inferior y desaparece solo tras unos segundos.\n\nÚtil para avisos rápidos."
     },
     {
       "id": "snackbar",
       "titulo": "Snackbar",
-      "descripcion": "Similar al Toast, pero permite incluir una acción (como 'Deshacer') y visualmente está más integrado con Material Design."
+      "descripcion": "Similar al Toast, pero permite incluir una acción.\n\n(ej: 'Deshacer')\n\nVisualmente está más integrado con Material Design."
     }
   ],
   "activities_y_ciclo": [
     {
       "id": "activity",
       "titulo": "Activity",
-      "descripcion": "Representa una pantalla de la app. Es el contenedor donde vive tu diseño y la lógica de interacción."
+      "descripcion": "Representa una pantalla de la app.\n\nEs el contenedor donde vive tu diseño y la lógica de interacción."
+    },
+    {
+      "id": "mainactivity",
+      "titulo": "MainActivity",
+      "descripcion": "La pantalla principal que se abre cuando el usuario lanza la app.\n\nEs el punto de entrada y suele conectar con el archivo activity_main.xml."
     },
     {
       "id": "oncreate",
       "titulo": "onCreate()",
-      "descripcion": "El momento en que la pantalla nace. Aquí se infla el diseño XML y se preparan los componentes."
+      "descripcion": "El momento en que la pantalla nace.\n\nAquí se infla el diseño XML y se preparan los componentes."
     },
     {
       "id": "onstart",
@@ -91,7 +96,7 @@
     {
       "id": "onpause",
       "titulo": "onPause()",
-      "descripcion": "El usuario está saliendo de la pantalla. Se usa para pausar tareas que no deben seguir activas."
+      "descripcion": "El usuario está saliendo de la pantalla.\n\nSe usa para pausar tareas que no deben seguir activas."
     },
     {
       "id": "onstop",
@@ -108,12 +113,17 @@
     {
       "id": "android_manifest",
       "titulo": "AndroidManifest.xml",
-      "descripcion": "El archivo de identidad de la app. Define el icono, el nombre, los permisos y las pantallas existentes."
+      "descripcion": "El archivo de identidad de la app.\n\nDefine el icono, el nombre, los permisos y las pantallas existentes."
+    },
+    {
+      "id": "activity_main_xml",
+      "titulo": "activity_main.xml",
+      "descripcion": "El archivo XML que define el diseño visual de la pantalla principal.\n\nAquí es donde colocas los botones, textos e imágenes que verá el usuario."
     },
     {
       "id": "gradle",
       "titulo": "Gradle",
-      "descripcion": "El sistema que compila la app. Aquí se gestionan las librerías externas y versiones de Android."
+      "descripcion": "El sistema que compila la app.\n\nAquí se gestionan las librerías externas y versiones de Android."
     },
     {
       "id": "colors_xml",
@@ -125,12 +135,12 @@
     {
       "id": "clase",
       "titulo": "Clase",
-      "descripcion": "Es el molde o plano. Define qué es un objeto y qué puede hacer."
+      "descripcion": "Es el molde o plano.\n\nDefine qué es un objeto y qué puede hacer."
     },
     {
       "id": "instancia",
       "titulo": "Instancia / Objeto",
-      "descripcion": "Es el elemento real creado con el molde. La clase es el plano de una silla, la instancia es la silla donde te sientas."
+      "descripcion": "Es el elemento real creado con el molde.\n\nLa clase es el plano de una silla, la instancia es la silla donde te sientas."
     },
     {
       "id": "constructor",
@@ -138,14 +148,19 @@
       "descripcion": "La función que se encarga de inicializar el objeto cuando se crea por primera vez."
     },
     {
+      "id": "metodo",
+      "titulo": "Método",
+      "descripcion": "Una función que pertenece a una clase y define las acciones que puede realizar un objeto.\n\n(ej: un método 'calcular()' o 'mostrar()')"
+    },
+    {
       "id": "herencia",
       "titulo": "Herencia",
-      "descripcion": "Permite que una clase tome características de otra. Por ejemplo, un Coche hereda de Vehículo."
+      "descripcion": "Permite que una clase tome características de otra.\n\n(ej: un Coche hereda de Vehículo)"
     },
     {
       "id": "override",
       "titulo": "Override",
-      "descripcion": "Significa 'sobrescribir'. Se usa para cambiar el comportamiento de una función que hemos heredado de otra clase."
+      "descripcion": "Significa 'sobrescribir'.\n\nSe usa para cambiar el comportamiento de una función que hemos heredado de otra clase."
     },
     {
       "id": "singleton",
@@ -157,12 +172,12 @@
     {
       "id": "int",
       "titulo": "Int",
-      "descripcion": "Números enteros sin decimales (ej: 1, 10, -500)."
+      "descripcion": "Números enteros sin decimales.\n\n(ej: 1, 10, -500)"
     },
     {
       "id": "double",
       "titulo": "Double",
-      "descripcion": "Números con decimales de alta precisión (ej: 3.1416)."
+      "descripcion": "Números con decimales de alta precisión.\n\n(ej: 3.1416)"
     },
     {
       "id": "boolean",
@@ -172,19 +187,19 @@
     {
       "id": "string",
       "titulo": "String",
-      "descripcion": "Cadenas de texto o caracteres (ej: 'Hola Mundo')."
+      "descripcion": "Cadenas de texto o caracteres.\n\n(ej: 'Hola Mundo')"
     }
   ],
   "kotlin_avanzado_y_log": [
     {
       "id": "corrutinas",
       "titulo": "Corrutinas",
-      "descripcion": "Permiten realizar tareas pesadas (como descargar datos) en segundo plano sin bloquear la interfaz."
+      "descripcion": "Permiten realizar tareas pesadas en segundo plano sin bloquear la interfaz.\n\n(ej: descargar datos)"
     },
     {
       "id": "log_d",
       "titulo": "Log.d()",
-      "descripcion": "Una herramienta de depuración que imprime mensajes ocultos en la consola para que los desarrolladores vean qué está pasando internamente."
+      "descripcion": "Una herramienta de depuración que imprime mensajes ocultos en la consola.\n\nPermite a los desarrolladores ver qué está pasando internamente."
     },
     {
       "id": "null_safety",
