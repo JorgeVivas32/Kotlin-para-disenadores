@@ -1,6 +1,12 @@
-package com.jorge.kotlin_para_diseadores.types
+package com.jorge.kotlin_para_disenadores.types
 
 import com.google.gson.annotations.SerializedName
+
+interface Identificable {
+    val id: String
+    val titulo: String
+    val descripcion: String
+}
 
 data class Descripciones(
     val layouts: List<ArchivosYCarpeta>,
@@ -16,7 +22,7 @@ data class Descripciones(
 )
 
 data class ArchivosYCarpeta(
-    val id: String,
-    val titulo: String,
-    val descripcion: String
-)
+    override val id: String,
+    override val titulo: String,
+    override val descripcion: String
+) : Identificable
