@@ -31,42 +31,41 @@ class MainActivity : AppCompatActivity() {
         ManagerBusqueda(binding.busqueda).configurarOnSubmit()
 
         binding.mainActivity.setOnClickListener {
-            it.ocultarTeclado()
-            mostrarDescripcion(IdsDescripciones.MAINACTIVITY)
+            mostrarDescripcion(IdsDescripciones.MAINACTIVITY, it)
         }
 
         binding.activityMain.setOnClickListener {
-            it.ocultarTeclado()
-            mostrarDescripcion(IdsDescripciones.ACTIVITY_MAIN_XML)
+            mostrarDescripcion(IdsDescripciones.ACTIVITY_MAIN_XML, it)
         }
 
         binding.andoridManifest.setOnClickListener {
-            it.ocultarTeclado()
-            mostrarDescripcion(IdsDescripciones.ANDROID_MANIFEST)
+            mostrarDescripcion(IdsDescripciones.ANDROID_MANIFEST, it)
         }
 
         binding.buildGradle.setOnClickListener {
-            it.ocultarTeclado()
-            mostrarDescripcion(IdsDescripciones.GRADLE)
+            mostrarDescripcion(IdsDescripciones.GRADLE, it)
         }
 
         binding.constructor.setOnClickListener {
-            it.ocultarTeclado()
-            mostrarDescripcion(IdsDescripciones.CONSTRUCTOR)
+            mostrarDescripcion(IdsDescripciones.CONSTRUCTOR, it)
         }
 
         binding.metodo.setOnClickListener {
-            it.ocultarTeclado()
-            mostrarDescripcion(IdsDescripciones.METODO)
+            mostrarDescripcion(IdsDescripciones.METODO, it)
         }
 
         binding.instancia.setOnClickListener {
-            it.ocultarTeclado()
-            mostrarDescripcion(IdsDescripciones.INSTANCIA)
+            mostrarDescripcion(IdsDescripciones.INSTANCIA, it)
+        }
+
+        binding.limpiarPantalla.setOnClickListener {
+            binding.pantallaDescripcion.text = ""
         }
     }
 
-    fun mostrarDescripcion(id: String) {
+    fun mostrarDescripcion(id: String, view: View) {
+        view.ocultarTeclado()
+
         val item = JsonRepository.getItemPorId(id)
 
         if (item == null) {
