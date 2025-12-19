@@ -3,193 +3,609 @@
     {
       "id": "constraintlayout",
       "titulo": "ConstraintLayout",
-      "descripcion": "Es el 'organizador' de la pantalla. Te permite posicionar cada elemento creando 'relaciones' o 'anclas' con otros elementos o con los bordes. Es el equivalente al Auto Layout de Figma."
+      "nivel": "intermedio",
+      "descripcion": "Es el 'organizador' de la pantalla más potente y flexible.\n\nTe permite posicionar cada elemento creando 'relaciones' o 'anclas' con otros elementos o con los bordes. Es el equivalente al Auto Layout de Figma.\n\nPerfecto para interfaces complejas que deben adaptarse a diferentes tamaños de pantalla.",
+      "relacionados": [
+        "linearlayout",
+        "framelayout",
+        "activity_main_xml"
+      ]
     },
     {
       "id": "linearlayout",
       "titulo": "LinearLayout",
-      "descripcion": "Un organizador simple que apila los elementos uno detrás de otro de forma secuencial, ya sea en una columna vertical o en una fila horizontal."
+      "nivel": "básico",
+      "descripcion": "Un organizador simple que apila los elementos uno detrás de otro de forma secuencial.\n\nComo un Stack en Figma: puede ser vertical (columna) u horizontal (fila). Ideal cuando necesitas una lista simple de elementos alineados.",
+      "relacionados": [
+        "constraintlayout",
+        "framelayout"
+      ]
     },
     {
       "id": "framelayout",
       "titulo": "FrameLayout",
-      "descripcion": "Un contenedor para superponer elementos (como capas). El último elemento añadido se dibuja encima de los anteriores."
+      "nivel": "básico",
+      "descripcion": "Un contenedor para superponer elementos, como las capas en Photoshop o Figma.\n\nEl último elemento añadido aparece encima de los anteriores. Útil para efectos de overlay, badges sobre iconos, o mostrar/ocultar contenido.",
+      "relacionados": [
+        "constraintlayout",
+        "imageview"
+      ]
     }
   ],
   "botones": [
     {
       "id": "button",
       "titulo": "Button",
-      "descripcion": "El botón estándar con texto para acciones claras como 'Aceptar' o 'Siguiente'."
+      "nivel": "básico",
+      "descripcion": "El botón estándar con texto para acciones claras.\n\nComo los botones principales que ves en apps: 'Aceptar', 'Siguiente', 'Enviar'. Es el elemento de interacción más básico y reconocible.",
+      "relacionados": [
+        "onclick",
+        "imagebutton",
+        "fab"
+      ]
     },
     {
       "id": "imagebutton",
       "titulo": "ImageButton",
-      "descripcion": "Un botón que solo contiene un icono o imagen. Ideal para botones de 'Cerrar' o redes sociales."
+      "nivel": "básico",
+      "descripcion": "Un botón que solo contiene un icono o imagen, sin texto.\n\nComo el botón de 'X' para cerrar, los iconos de compartir en redes sociales, o el ícono de menú hamburguesa. Ideal cuando el icono es suficientemente claro.",
+      "relacionados": [
+        "button",
+        "imageview",
+        "onclick"
+      ]
     },
     {
       "id": "fab",
       "titulo": "FloatingActionButton",
-      "descripcion": "El botón circular que flota sobre la interfaz para la acción principal, como redactar un mensaje."
+      "nivel": "intermedio",
+      "descripcion": "El botón circular que flota sobre la interfaz para la acción más importante.\n\nComo el botón '+' de Gmail para escribir un correo nuevo, o el de Instagram para subir una foto. Siempre visible y accesible desde cualquier parte de la pantalla.",
+      "relacionados": [
+        "button",
+        "onclick"
+      ]
     }
   ],
   "componentes_ui": [
     {
       "id": "textview",
       "titulo": "TextView",
-      "descripcion": "Etiqueta para mostrar texto estático que el usuario no puede modificar."
+      "nivel": "básico",
+      "descripcion": "Una etiqueta de texto que solo muestra información. El usuario puede leerlo pero no editarlo.\n\nComo los títulos de sección en Instagram, el precio de un producto en Amazon, o los mensajes informativos. Es el componente más usado para mostrar texto estático.",
+      "relacionados": [
+        "edittext",
+        "string"
+      ]
     },
     {
       "id": "edittext",
       "titulo": "EditText",
-      "descripcion": "Campo de entrada donde el usuario puede escribir texto, correos o contraseñas."
+      "nivel": "básico",
+      "descripcion": "Un campo donde el usuario puede escribir.\n\nComo las cajas de texto para introducir tu email, contraseña o un mensaje. Puede configurarse para diferentes tipos: texto normal, números, email, contraseña oculta, teléfono, etc.",
+      "relacionados": [
+        "textview",
+        "string"
+      ]
     },
     {
       "id": "imageview",
       "titulo": "ImageView",
-      "descripcion": "Componente para mostrar fotos, ilustraciones o iconos vectoriales."
+      "nivel": "básico",
+      "descripcion": "Un contenedor para mostrar imágenes.\n\nPuede ser una foto de perfil, una ilustración, un icono o cualquier elemento gráfico. Soporta diferentes formatos: PNG, JPG, vectoriales (SVG/XML), GIF.",
+      "relacionados": [
+        "drawable",
+        "imagebutton"
+      ]
     },
     {
       "id": "scrollview",
       "titulo": "ScrollView",
-      "descripcion": "Un contenedor que permite al usuario hacer scroll si el contenido es más alto que la pantalla física."
+      "nivel": "básico",
+      "descripcion": "Un contenedor que activa el scroll cuando el contenido es más largo que la pantalla.\n\nComo cuando lees un artículo largo en Medium, los términos y condiciones, o los comentarios en Instagram. Solo permite scroll vertical y puede contener un único elemento hijo.",
+      "relacionados": [
+        "recyclerview",
+        "linearlayout"
+      ]
+    },
+    {
+      "id": "recyclerview",
+      "titulo": "RecyclerView",
+      "nivel": "avanzado",
+      "descripcion": "Lista eficiente para mostrar muchos elementos con scroll.\n\nComo el feed de Instagram, Twitter, la lista de contactos o productos en Amazon. Reutiliza las vistas para no sobrecargar la memoria: solo crea las vistas visibles en pantalla.\n\nMucho más eficiente que ScrollView para listas largas.",
+      "relacionados": [
+        "scrollview",
+        "cardview"
+      ]
+    },
+    {
+      "id": "cardview",
+      "titulo": "CardView",
+      "nivel": "intermedio",
+      "descripcion": "Una tarjeta con bordes redondeados y sombra que agrupa contenido relacionado.\n\nComo las tarjetas de Material Design que ves en Google, las tarjetas de productos en tiendas online, o las publicaciones en redes sociales. Crea jerarquía visual y separa información.",
+      "relacionados": [
+        "recyclerview",
+        "constraintlayout"
+      ]
     }
   ],
   "notificaciones_ui": [
     {
       "id": "toast",
       "titulo": "Toast",
-      "descripcion": "Un pequeño mensaje flotante que aparece en la parte inferior y desaparece solo tras unos segundos. Útil para avisos rápidos."
+      "nivel": "básico",
+      "descripcion": "Un mensaje pequeño que aparece brevemente en la parte inferior y desaparece solo.\n\nComo cuando guardas una foto en Instagram y aparece 'Guardado en colección', o cuando copias texto y dice 'Copiado'. No requiere acción del usuario.",
+      "relacionados": [
+        "snackbar"
+      ]
     },
     {
       "id": "snackbar",
       "titulo": "Snackbar",
-      "descripcion": "Similar al Toast, pero permite incluir una acción (como 'Deshacer') y visualmente está más integrado con Material Design."
+      "nivel": "intermedio",
+      "descripcion": "Similar al Toast, pero más moderno y puede incluir un botón de acción.\n\nComo cuando borras un email en Gmail y aparece 'Mensaje eliminado' con la opción 'Deshacer'. Más interactivo que el Toast y se ajusta mejor a Material Design.",
+      "relacionados": [
+        "toast"
+      ]
+    },
+    {
+      "id": "dialog",
+      "titulo": "Dialog",
+      "nivel": "intermedio",
+      "descripcion": "Una ventana emergente que aparece encima de la pantalla actual y requiere atención del usuario.\n\nComo las alertas de confirmación ('¿Estás seguro de eliminar?'), formularios rápidos, o avisos importantes. Bloquea la interacción con el resto de la app hasta que se cierre.",
+      "relacionados": [
+        "toast",
+        "snackbar"
+      ]
     }
   ],
   "activities_y_ciclo": [
     {
       "id": "activity",
       "titulo": "Activity",
-      "descripcion": "Representa una pantalla de la app. Es el contenedor donde vive tu diseño y la lógica de interacción."
+      "nivel": "básico",
+      "descripcion": "Representa una pantalla completa de tu app. Como una 'mesa de trabajo' individual.\n\nCada pantalla diferente (inicio, perfil, configuración, detalle de producto) es una Activity separada. Es donde vive tu diseño visual y toda la interacción del usuario con esa pantalla específica.",
+      "relacionados": [
+        "mainactivity",
+        "intent",
+        "oncreate"
+      ]
+    },
+    {
+      "id": "mainactivity",
+      "titulo": "MainActivity",
+      "nivel": "básico",
+      "descripcion": "La primera pantalla que ve el usuario al abrir tu app. Es el punto de entrada principal.\n\nEs como la página de inicio o home screen. Se conecta con el archivo activity_main.xml que contiene el diseño visual de esta pantalla.",
+      "relacionados": [
+        "activity",
+        "activity_main_xml",
+        "oncreate",
+        "android_manifest"
+      ]
+    },
+    {
+      "id": "intent",
+      "titulo": "Intent",
+      "nivel": "intermedio",
+      "descripcion": "El mensajero que lleva al usuario de una pantalla a otra o comunica acciones.\n\nComo los enlaces entre páginas en web: le dice a Android 'abre esta pantalla', 'comparte este texto', 'llama a este número', o 'abre esta URL en el navegador'.",
+      "relacionados": [
+        "activity",
+        "mainactivity"
+      ]
     },
     {
       "id": "oncreate",
       "titulo": "onCreate()",
-      "descripcion": "El momento en que la pantalla nace. Aquí se infla el diseño XML y se preparan los componentes."
+      "nivel": "básico",
+      "descripcion": "El momento en que la pantalla 'nace' o se crea por primera vez.\n\nAquí es donde Android carga tu diseño visual (el XML) y prepara todos los elementos antes de mostrarlos. Es el primer método que se ejecuta en una Activity.",
+      "relacionados": [
+        "onstart",
+        "onresume",
+        "activity"
+      ]
     },
     {
       "id": "onstart",
       "titulo": "onStart()",
-      "descripcion": "La pantalla está a punto de ser visible para el usuario."
+      "nivel": "intermedio",
+      "descripcion": "La pantalla está a punto de hacerse visible.\n\nEs el momento justo antes de que el usuario la vea en su pantalla. Se ejecuta después de onCreate() y antes de onResume().",
+      "relacionados": [
+        "oncreate",
+        "onresume",
+        "onstop"
+      ]
     },
     {
       "id": "onresume",
       "titulo": "onResume()",
-      "descripcion": "La pantalla ya es visible y está lista para que el usuario interactúe con ella."
+      "nivel": "intermedio",
+      "descripcion": "La pantalla ya es completamente visible y el usuario puede interactuar con ella.\n\nTodo está listo para que toque botones, escriba texto, haga scroll. Es cuando la app está 'en primer plano' y activa. Aquí inicias animaciones, vídeos o actualizaciones de UI.",
+      "relacionados": [
+        "onpause",
+        "onstart"
+      ]
     },
     {
       "id": "onpause",
       "titulo": "onPause()",
-      "descripcion": "El usuario está saliendo de la pantalla. Se usa para pausar tareas que no deben seguir activas."
+      "nivel": "intermedio",
+      "descripcion": "El usuario está saliendo de esta pantalla o cambiando a otra app.\n\nAquí debes pausar cosas como vídeos, animaciones, música o guardar datos temporales. La pantalla aún es parcialmente visible pero ya no interactúa el usuario.",
+      "relacionados": [
+        "onresume",
+        "onstop"
+      ]
     },
     {
       "id": "onstop",
       "titulo": "onStop()",
-      "descripcion": "La pantalla ya no es visible, pero sigue en memoria."
+      "nivel": "intermedio",
+      "descripcion": "La pantalla ya no es visible, pero Android la mantiene en memoria por si el usuario vuelve.\n\nComo cuando minimizas una app y abres otra. La Activity sigue 'viva' pero oculta, lista para volver rápidamente.",
+      "relacionados": [
+        "onpause",
+        "ondestroy",
+        "onstart"
+      ]
     },
     {
       "id": "ondestroy",
       "titulo": "onDestroy()",
-      "descripcion": "La pantalla se cierra definitivamente y se libera el espacio en memoria."
+      "nivel": "intermedio",
+      "descripcion": "La pantalla se cierra definitivamente y Android libera su espacio en memoria.\n\nComo cuando cierras completamente una app desde el gestor de aplicaciones o cuando el sistema necesita liberar recursos. Es el final del ciclo de vida.",
+      "relacionados": [
+        "onstop",
+        "oncreate"
+      ]
     }
   ],
   "archivos_y_configuracion": [
     {
       "id": "android_manifest",
       "titulo": "AndroidManifest.xml",
-      "descripcion": "El archivo de identidad de la app. Define el icono, el nombre, los permisos y las pantallas existentes."
+      "nivel": "básico",
+      "descripcion": "El archivo de 'identidad' de tu app. Como el DNI o pasaporte de la aplicación.\n\nAquí defines el icono, el nombre visible, qué pantallas (Activities) tiene, qué permisos necesita (cámara, ubicación, internet...), versión mínima de Android, y más configuraciones esenciales.",
+      "relacionados": [
+        "mainactivity",
+        "gradle"
+      ]
+    },
+    {
+      "id": "activity_main_xml",
+      "titulo": "activity_main.xml",
+      "nivel": "básico",
+      "descripcion": "El archivo donde diseñas visualmente tu pantalla principal usando XML.\n\nEs como tu lienzo en Figma: aquí colocas botones, textos, imágenes y defines cómo se organizan. Cada Activity tiene su propio archivo XML de diseño.",
+      "relacionados": [
+        "mainactivity",
+        "xml",
+        "constraintlayout"
+      ]
     },
     {
       "id": "gradle",
       "titulo": "Gradle",
-      "descripcion": "El sistema que compila la app. Aquí se gestionan las librerías externas y versiones de Android."
+      "nivel": "intermedio",
+      "descripcion": "El sistema que 'construye' o compila tu app para convertirla en una APK instalable.\n\nTambién gestiona las dependencias (librerías externas como plugins), las versiones de Android que soportas, y configuraciones de compilación. Como un 'chef' que toma todos los ingredientes y cocina la app final.",
+      "relacionados": [
+        "android_manifest"
+      ]
     },
     {
       "id": "colors_xml",
       "titulo": "colors.xml",
-      "descripcion": "La paleta cromática centralizada para mantener la consistencia visual en toda la app."
+      "nivel": "básico",
+      "descripcion": "Tu paleta de colores centralizada, como los 'Color Styles' en Figma.\n\nDefines todos tus colores aquí una vez (primario, secundario, fondo, texto...) y los reutilizas en toda la app para mantener consistencia visual. Cambiar un color aquí lo actualiza en toda la app.",
+      "relacionados": [
+        "strings_xml",
+        "drawable"
+      ]
+    },
+    {
+      "id": "strings_xml",
+      "titulo": "strings.xml",
+      "nivel": "básico",
+      "descripcion": "Archivo donde guardas todos los textos de la app de forma centralizada.\n\nEn vez de escribir 'Aceptar' directamente en el código, creas una referencia aquí. Facilita traducir la app a múltiples idiomas y cambiar textos sin tocar el código. Como tener una 'biblioteca de copys'.",
+      "relacionados": [
+        "textview",
+        "button",
+        "colors_xml"
+      ]
+    },
+    {
+      "id": "drawable",
+      "titulo": "Drawable",
+      "nivel": "básico",
+      "descripcion": "Carpeta donde guardas todos tus recursos gráficos y visuales.\n\nAquí van iconos, imágenes PNG/JPG, vectoriales XML (como SVG), formas, gradientes y fondos. Como la carpeta 'Assets' en Figma donde organizas tus elementos visuales.\n\nAndroid genera automáticamente versiones optimizadas para diferentes densidades de pantalla.",
+      "relacionados": [
+        "imageview",
+        "imagebutton",
+        "colors_xml"
+      ]
+    }
+  ],
+  "programacion_basica": [
+    {
+      "id": "variable",
+      "titulo": "Variable",
+      "nivel": "básico",
+      "descripcion": "Un contenedor que guarda un valor que puede cambiar durante la ejecución de la app.\n\nComo una caja etiquetada donde guardas información: `var edad = 25`, `var nombreUsuario = \"Ana\"`. En Kotlin se declara con `var` y puedes cambiar su valor en cualquier momento.\n\nEjemplo: `var contador = 0` luego puedes hacer `contador = 5`",
+      "relacionados": [
+        "constante",
+        "int",
+        "string",
+        "boolean",
+        "double"
+      ]
+    },
+    {
+      "id": "constante",
+      "titulo": "Constante",
+      "nivel": "básico",
+      "descripcion": "Un contenedor que guarda un valor que NO puede cambiar una vez asignado.\n\nComo una caja sellada: una vez que le das un valor, queda fijo para siempre. En Kotlin se declara con `val` o `const val`.\n\nÚsala para valores que no deben cambiar: `val PI = 3.1416`, `val MAX_INTENTOS = 3`, `val NOMBRE_APP = \"MiApp\"`. Intentar cambiarla causará un error de compilación.",
+      "relacionados": [
+        "variable",
+        "int",
+        "string"
+      ]
+    },
+    {
+      "id": "funcion",
+      "titulo": "Función",
+      "nivel": "básico",
+      "descripcion": "Un bloque de código reutilizable que realiza una tarea específica.\n\nComo una receta: defines los pasos una vez y luego la ejecutas cuando la necesites. Puede recibir datos (parámetros) y devolver un resultado.\n\nEjemplo: `fun calcularTotal(precio: Double, cantidad: Int): Double` devuelve el total a pagar.",
+      "relacionados": [
+        "metodo",
+        "variable"
+      ]
     }
   ],
   "programacion_poo": [
     {
       "id": "clase",
       "titulo": "Clase",
-      "descripcion": "Es el molde o plano. Define qué es un objeto y qué puede hacer."
+      "nivel": "básico",
+      "descripcion": "Es el molde, plantilla o 'componente maestro' de algo.\n\nDefine las características (propiedades) y acciones (métodos) que tendrá. Como un componente en Figma que puedes reutilizar: defines una vez cómo es un 'Usuario' y luego creas muchos usuarios diferentes.",
+      "relacionados": [
+        "instancia",
+        "constructor",
+        "metodo"
+      ]
     },
     {
       "id": "instancia",
       "titulo": "Instancia / Objeto",
-      "descripcion": "Es el elemento real creado con el molde. La clase es el plano de una silla, la instancia es la silla donde te sientas."
+      "nivel": "básico",
+      "descripcion": "Es un elemento real y concreto creado a partir del molde (la clase).\n\nSi la clase es el plano arquitectónico de una casa, la instancia es la casa física construida en una dirección específica. Puedes crear miles de instancias (objetos) de la misma clase, cada una con sus propios valores.",
+      "relacionados": [
+        "clase",
+        "constructor"
+      ]
     },
     {
       "id": "constructor",
       "titulo": "Constructor",
-      "descripcion": "La función que se encarga de inicializar el objeto cuando se crea por primera vez."
+      "nivel": "intermedio",
+      "descripcion": "La función especial que 'construye' o inicializa un objeto cuando lo creas por primera vez.\n\nEs donde defines los valores iniciales necesarios, como el color, tamaño o nombre de un elemento. Es obligatorio llamar al constructor para crear una instancia.\n\nEjemplo: `Usuario(nombre = \"Ana\", edad = 25)`",
+      "relacionados": [
+        "clase",
+        "instancia",
+        "metodo"
+      ]
+    },
+    {
+      "id": "metodo",
+      "titulo": "Método",
+      "nivel": "básico",
+      "descripcion": "Una acción o función que pertenece a una clase y puede realizar un objeto.\n\nComo las acciones que tiene un botón: puede cambiar de color, moverse, cambiar su texto, ejecutar una animación. Ejemplos: `mostrar()`, `ocultar()`, `calcular()`, `guardar()`.\n\nLa diferencia con función: los métodos pertenecen a una clase, las funciones pueden ser independientes.",
+      "relacionados": [
+        "funcion",
+        "clase",
+        "constructor",
+        "override"
+      ]
     },
     {
       "id": "herencia",
       "titulo": "Herencia",
-      "descripcion": "Permite que una clase tome características de otra. Por ejemplo, un Coche hereda de Vehículo."
+      "nivel": "intermedio",
+      "descripcion": "Cuando una clase 'hereda' características y comportamientos de otra clase madre (o clase padre).\n\nComo en Figma cuando creas variantes: un 'Botón Primario' y un 'Botón Secundario' heredan de 'Botón Base'. Evita repetir código y crea jerarquías lógicas.\n\nEjemplo: Activity → MainActivity (MainActivity hereda de Activity)",
+      "relacionados": [
+        "clase",
+        "override"
+      ]
     },
     {
       "id": "override",
       "titulo": "Override",
-      "descripcion": "Significa 'sobrescribir'. Se usa para cambiar el comportamiento de una función que hemos heredado de otra clase."
+      "nivel": "intermedio",
+      "descripcion": "Significa 'sobrescribir' o personalizar el comportamiento de un método heredado.\n\nSi heredaste una función de otra clase pero quieres que funcione diferente en tu caso específico, la sobrescribes manteniendo el mismo nombre.\n\nEjemplo: MainActivity sobrescribe `onCreate()` de Activity para definir su propio comportamiento al crearse.",
+      "relacionados": [
+        "herencia",
+        "metodo",
+        "oncreate"
+      ]
     },
     {
       "id": "singleton",
       "titulo": "Singleton",
-      "descripcion": "Un patrón que asegura que solo exista una única instancia de una clase en toda la aplicación."
+      "nivel": "avanzado",
+      "descripcion": "Un patrón de diseño que garantiza que solo existe una única instancia de una clase en toda la app.\n\nComo tener un único gestor de configuración, una única base de datos, o un único reproductor de música compartido por toda la aplicación. Útil para recursos que deben ser globales y únicos.",
+      "relacionados": [
+        "clase",
+        "instancia"
+      ]
     }
   ],
   "tipos_de_datos": [
     {
       "id": "int",
       "titulo": "Int",
-      "descripcion": "Números enteros sin decimales (ej: 1, 10, -500)."
+      "nivel": "básico",
+      "descripcion": "Números enteros, sin decimales.\n\nÚsalos para contar cosas discretas: número de likes (157), edad (25), cantidad de mensajes no leídos (3), posición en una lista (0, 1, 2...).",
+      "relacionados": [
+        "double",
+        "variable"
+      ]
     },
     {
       "id": "double",
       "titulo": "Double",
-      "descripcion": "Números con decimales de alta precisión (ej: 3.1416)."
+      "nivel": "básico",
+      "descripcion": "Números con decimales de alta precisión (punto flotante).\n\nPara valores continuos: precios (19.99€), coordenadas GPS (40.4168, -3.7038), porcentajes precisos (87.5%), temperaturas (36.6°C).",
+      "relacionados": [
+        "int",
+        "variable"
+      ]
     },
     {
       "id": "boolean",
       "titulo": "Boolean",
-      "descripcion": "Valores lógicos que solo pueden ser verdaderos (true) o falsos (false)."
+      "nivel": "básico",
+      "descripcion": "Valores de verdadero (true) o falso (false). Como un interruptor de luz: encendido/apagado.\n\nPara estados binarios: ¿Está logueado? ¿Es premium? ¿Notificaciones activas? ¿Modo oscuro activado? ¿Acepta términos? Solo puede ser SÍ o NO, nunca ambos o ninguno.",
+      "relacionados": [
+        "variable"
+      ]
     },
     {
       "id": "string",
       "titulo": "String",
-      "descripcion": "Cadenas de texto o caracteres (ej: 'Hola Mundo')."
+      "nivel": "básico",
+      "descripcion": "Texto o cadenas de caracteres. En Kotlin se escriben entre comillas dobles.\n\nNombres (\"Ana García\"), mensajes (\"Hola mundo\"), emails (\"usuario@ejemplo.com\"), direcciones, URLs... cualquier cosa que sea texto. Puede estar vacío (\"\") o contener miles de caracteres.",
+      "relacionados": [
+        "char",
+        "textview",
+        "edittext",
+        "strings_xml"
+      ]
+    },
+    {
+      "id": "char",
+      "titulo": "Char",
+      "nivel": "básico",
+      "descripcion": "Un único carácter. En Kotlin se escribe entre comillas simples.\n\nUna letra ('A', 'z'), un número ('5'), un símbolo ('$', '@'), incluso un espacio (' ') o un emoji ('😀'). Solo puede contener exactamente un carácter, ni más ni menos.",
+      "relacionados": [
+        "string"
+      ]
+    }
+  ],
+  "interaccion": [
+    {
+      "id": "onclick",
+      "titulo": "onClick",
+      "nivel": "básico",
+      "descripcion": "El evento que se dispara cuando el usuario toca un elemento de la interfaz.\n\nEs donde defines qué debe pasar cuando alguien pulsa un botón: abrir otra pantalla, guardar datos, mostrar un mensaje, hacer una llamada, compartir contenido, etc.\n\nEs el evento de interacción más común en Android.",
+      "relacionados": [
+        "button",
+        "imagebutton",
+        "intent"
+      ]
+    },
+    {
+      "id": "onlongclick",
+      "titulo": "onLongClick",
+      "nivel": "intermedio",
+      "descripcion": "El evento que se activa cuando el usuario mantiene presionado un elemento.\n\nComo cuando mantienes pulsado un mensaje en WhatsApp para copiarlo o reenviarlo. Útil para acciones secundarias o menús contextuales que no quieres que estén siempre visibles.",
+      "relacionados": [
+        "onclick"
+      ]
     }
   ],
   "kotlin_avanzado_y_log": [
     {
       "id": "corrutinas",
       "titulo": "Corrutinas",
-      "descripcion": "Permiten realizar tareas pesadas (como descargar datos) en segundo plano sin bloquear la interfaz."
+      "nivel": "avanzado",
+      "descripcion": "Permiten hacer tareas pesadas en segundo plano sin congelar la interfaz.\n\nSin corrutinas, si descargas una imagen grande, la app se quedaría 'congelada' hasta terminar y el usuario no podría hacer nada. Con corrutinas, el usuario puede seguir navegando mientras se descarga en segundo plano.\n\nEsenciales para llamadas a APIs, descargas, acceso a base de datos.",
+      "relacionados": [
+        "log",
+        "null_safety"
+      ]
     },
     {
-      "id": "log_d",
-      "titulo": "Log.d()",
-      "descripcion": "Una herramienta de depuración que imprime mensajes ocultos en la consola para que los desarrolladores vean qué está pasando internamente."
+      "id": "log",
+      "titulo": "Log",
+      "nivel": "básico",
+      "descripcion": "Una herramienta para dejar mensajes invisibles que solo tú ves mientras desarrollas.\n\nComo dejar 'notas de depuración' en el código para verificar que todo funciona correctamente. Por ejemplo: ver qué valor tiene una variable en un momento específico, confirmar que se ejecutó una función, o detectar errores.\n\nAparecen en Logcat, no las ve el usuario final.",
+      "relacionados": [
+        "corrutinas"
+      ]
     },
     {
       "id": "null_safety",
       "titulo": "Null Safety",
-      "descripcion": "El sistema de Kotlin para evitar que la app se cuelgue cuando intenta acceder a datos que no existen."
+      "nivel": "intermedio",
+      "descripcion": "El sistema de Kotlin para prevenir errores cuando intentas usar algo que no existe o está vacío (null).\n\nComo validar que un campo de formulario no esté vacío antes de enviarlo, o verificar que un usuario está logueado antes de mostrar su perfil. Evita que la app se cierre inesperadamente.\n\nEjemplo: Intentar mostrar el nombre de un usuario que no existe causaría un error. Null Safety te obliga a manejar ese caso primero con `?` o `!!`.",
+      "relacionados": [
+        "variable",
+        "string"
+      ]
+    }
+  ],
+  "conceptos_fundamentales": [
+    {
+      "id": "xml",
+      "titulo": "XML",
+      "nivel": "básico",
+      "descripcion": "El lenguaje de marcado para diseñar interfaces en Android.\n\nComo el HTML en web: defines la estructura visual de tus pantallas con etiquetas. Es donde 'dibujas' tus layouts escribiendo código descriptivo en lugar de arrastrar elementos.\n\nEjemplo: `<Button>` define un botón, `<TextView>` define un texto.",
+      "relacionados": [
+        "activity_main_xml",
+        "view"
+      ]
+    },
+    {
+      "id": "view",
+      "titulo": "View",
+      "nivel": "básico",
+      "descripcion": "El elemento básico de cualquier interfaz en Android. Todo lo que ves es una View.\n\nTodo lo visible en pantalla es una View o deriva de ella: botones, textos, imágenes, campos de entrada. Es como el concepto de 'elemento' o 'capa' en diseño.\n\nIncluso los layouts (ConstraintLayout, LinearLayout) son tipos especiales de Views que contienen otras Views.",
+      "relacionados": [
+        "textview",
+        "button",
+        "imageview",
+        "xml"
+      ]
+    },
+    {
+      "id": "id",
+      "titulo": "ID",
+      "nivel": "básico",
+      "descripcion": "El identificador único que le das a cada elemento de tu interfaz para poder referenciarlo en el código.\n\nComo poner nombre a las capas en Figma: necesitas darle un ID a un botón para poder decirle qué hacer cuando lo pulsan.\n\nEjemplo: `android:id=\"@+id/botonEnviar\"` te permite luego acceder a ese botón desde Kotlin.",
+      "relacionados": [
+        "view",
+        "onclick",
+        "xml"
+      ]
+    },
+    {
+      "id": "context",
+      "titulo": "Context",
+      "nivel": "intermedio",
+      "descripcion": "El 'contexto' o punto de referencia actual de la aplicación.\n\nEs como el 'entorno' donde está operando tu código: te da acceso a recursos, archivos, preferencias y servicios del sistema. Necesitas el Context para muchas operaciones como mostrar un Toast, acceder a la base de datos, o abrir otra Activity.\n\nCasi siempre usas `this` (la Activity actual) como Context.",
+      "relacionados": [
+        "activity",
+        "toast",
+        "intent"
+      ]
+    }
+  ],
+  "estructura_proyecto": [
+    {
+      "id": "paquete",
+      "titulo": "Paquete (Package)",
+      "nivel": "básico",
+      "descripcion": "La estructura de carpetas que organiza tu código Kotlin. Son carpetas físicas reales en tu proyecto.\n\nEjemplo: `com.tuempresa.tuapp.models` crea las carpetas: com/tuempresa/tuapp/models/\n\nAndroid Studio tiene dos vistas:\n• Vista 'Android': Muestra todo colapsado como 'com.tuempresa.tuapp' (más limpio)\n• Vista 'Project': Muestra las carpetas anidadas reales 'com/tuempresa/tuapp'\n\nAmbas vistas muestran las mismas carpetas físicas, solo cambia cómo se visualizan. Los paquetes ayudan a organizar código y evitar conflictos de nombres.",
+      "relacionados": [
+        "clase",
+        "android_manifest"
+      ]
+    },
+    {
+      "id": "res",
+      "titulo": "Carpeta res/",
+      "nivel": "básico",
+      "descripcion": "La carpeta de 'recursos' donde guardas todos los elementos no-código de tu app.\n\nContiene subcarpetas: layout/ (XMLs de diseño), drawable/ (imágenes), values/ (colores, textos, estilos), mipmap/ (iconos de la app). Todo lo visual y configurable vive aquí.\n\nSeparar recursos del código permite cambiar diseños sin tocar la lógica.",
+      "relacionados": [
+        "drawable",
+        "colors_xml",
+        "strings_xml",
+        "activity_main_xml"
+      ]
     }
   ]
 }

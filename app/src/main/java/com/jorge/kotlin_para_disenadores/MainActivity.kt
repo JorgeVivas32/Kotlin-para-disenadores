@@ -2,11 +2,12 @@ package com.jorge.kotlin_para_disenadores
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.jorge.kotlin_para_disenadores.constants.Ids
+import com.jorge.kotlin_para_disenadores.constants.IdsDescripciones
 import com.jorge.kotlin_para_disenadores.databinding.ActivityMainBinding
 import com.jorge.kotlin_para_disenadores.repositories.JsonRepository
 
@@ -27,11 +28,31 @@ class MainActivity : AppCompatActivity() {
         JsonRepository.init(this)
 
         binding.mainActivity.setOnClickListener {
-            mostrarDescripcion(Ids.ACTIVITY_MAIN_XML)
+            mostrarDescripcion(IdsDescripciones.MAINACTIVITY)
         }
 
         binding.activityMain.setOnClickListener {
-            mostrarDescripcion(Ids.MAIN_ACTIVITY_KT)
+            mostrarDescripcion(IdsDescripciones.ACTIVITY_MAIN_XML)
+        }
+
+        binding.andoridManifest.setOnClickListener {
+            mostrarDescripcion(IdsDescripciones.ANDROID_MANIFEST)
+        }
+
+        binding.buildGradle.setOnClickListener {
+            mostrarDescripcion(IdsDescripciones.GRADLE)
+        }
+
+        binding.constructor.setOnClickListener {
+            mostrarDescripcion(IdsDescripciones.CONSTRUCTOR)
+        }
+
+        binding.metodo.setOnClickListener {
+            mostrarDescripcion(IdsDescripciones.METODO)
+        }
+
+        binding.instancia.setOnClickListener {
+            mostrarDescripcion(IdsDescripciones.INSTANCIA)
         }
     }
 
@@ -39,11 +60,19 @@ class MainActivity : AppCompatActivity() {
         val item = JsonRepository.getItemPorId(id)
 
         if (item == null) {
-            Log.e("MainActivity", "Elemento con id \"${Ids.MAIN_ACTIVITY_KT}\" no encontrado")
-            binding.pantallaDescripcion.setText("Tu búsqueda no ha obtnenido resultados")
+            Log.e("MainActivity", "Elemento con id \"${id}\" no encontrado")
+            binding.pantallaDescripcion.text = "Tu búsqueda no ha obtnenido resultados"
             return
         }
 
-        binding.pantallaDescripcion.setText(item.descripcion)
+        scrollHastaArribaDelTodo()
+        binding.pantallaDescripcion.text = item.descripcion
+    }
+
+    fun scrollHastaArribaDelTodo() {
+        binding.scrollDescripcion.post {
+            binding.scrollDescripcion.fullScroll(View.FOCUS_UP)
+            binding.scrollDescripcion.smoothScrollTo(0, 0)
+        }
     }
 }

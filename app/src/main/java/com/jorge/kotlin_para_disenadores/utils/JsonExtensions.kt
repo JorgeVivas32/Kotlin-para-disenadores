@@ -3,13 +3,25 @@ package com.jorge.kotlin_para_disenadores.utils
 import com.jorge.kotlin_para_disenadores.types.Descripciones
 import com.jorge.kotlin_para_disenadores.types.Identificable
 
-fun Descripciones.todosLosIdentificables(): List<Identificable> {
-    val resultado = mutableListOf<Identificable>()
+private fun Descripciones.todosLosIdentificables(): List<Identificable> {
+    return listOf(
+        activitiesYCiclo,
+        archivosYConfiguracion,
+        botones,
+        componentesUi,
+        conceptosFundamentales,
+        estructuraProyecto,
+        interaccion,
+        kotlinAvanzadoYLog,
+        layouts,
+        notificacionesUi,
+        programacionPoo,
+        tiposDeDatos,
+        programacionBasica
+    ).flatten()
+}
 
-    if (layouts.isNotEmpty()) resultado.addAll(layouts)
-    if (componentesUI.isNotEmpty()) resultado.addAll(componentesUI)
-    if (archivosYCarpetas.isNotEmpty()) resultado.addAll(archivosYCarpetas)
-    if (conceptosClave.isNotEmpty()) resultado.addAll(conceptosClave)
-
-    return resultado
+// Versión más eficiente que construye el mapa directamente
+fun Descripciones.construirMapaIds(): Map<String, Identificable> {
+    return todosLosIdentificables().associateBy { it.id }
 }
