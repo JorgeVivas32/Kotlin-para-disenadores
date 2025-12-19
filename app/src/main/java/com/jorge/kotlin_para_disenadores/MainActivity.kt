@@ -3,6 +3,7 @@ package com.jorge.kotlin_para_disenadores
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -30,30 +31,37 @@ class MainActivity : AppCompatActivity() {
         ManagerBusqueda(binding.busqueda).configurarOnSubmit()
 
         binding.mainActivity.setOnClickListener {
+            it.ocultarTeclado()
             mostrarDescripcion(IdsDescripciones.MAINACTIVITY)
         }
 
         binding.activityMain.setOnClickListener {
+            it.ocultarTeclado()
             mostrarDescripcion(IdsDescripciones.ACTIVITY_MAIN_XML)
         }
 
         binding.andoridManifest.setOnClickListener {
+            it.ocultarTeclado()
             mostrarDescripcion(IdsDescripciones.ANDROID_MANIFEST)
         }
 
         binding.buildGradle.setOnClickListener {
+            it.ocultarTeclado()
             mostrarDescripcion(IdsDescripciones.GRADLE)
         }
 
         binding.constructor.setOnClickListener {
+            it.ocultarTeclado()
             mostrarDescripcion(IdsDescripciones.CONSTRUCTOR)
         }
 
         binding.metodo.setOnClickListener {
+            it.ocultarTeclado()
             mostrarDescripcion(IdsDescripciones.METODO)
         }
 
         binding.instancia.setOnClickListener {
+            it.ocultarTeclado()
             mostrarDescripcion(IdsDescripciones.INSTANCIA)
         }
     }
@@ -76,5 +84,10 @@ class MainActivity : AppCompatActivity() {
             binding.scrollDescripcion.fullScroll(View.FOCUS_UP)
             binding.scrollDescripcion.smoothScrollTo(0, 0)
         }
+    }
+
+    fun View.ocultarTeclado() {
+        val imm = context.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(windowToken, 0)
     }
 }
