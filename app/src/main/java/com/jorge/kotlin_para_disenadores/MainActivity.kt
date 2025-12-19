@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        // Inicializar todos los elementos como "inactivos"
         actualizarEstadoVistas(
             inactivas = listOf(
                 binding.mainActivity,
