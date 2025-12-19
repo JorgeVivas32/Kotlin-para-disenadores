@@ -63,14 +63,14 @@
 
     <TextView
         android:id="@+id/kotlin_para_diseñadores"
-        android:layout_width="294dp"
-        android:layout_height="32dp"
+        android:layout_width="312dp"
+        android:layout_height="30dp"
         android:layout_marginEnd="28dp"
         android:fontFamily="sans-serif-medium"
         android:text="Android para diseñadores"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="21sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -83,10 +83,10 @@
         android:layout_marginTop="4dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toStartOf="@+id/kotlin_para_diseñadores"
-        app:layout_constraintHorizontal_bias="0.432"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.705"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/logo_kotlin" />
 
     <ImageView
