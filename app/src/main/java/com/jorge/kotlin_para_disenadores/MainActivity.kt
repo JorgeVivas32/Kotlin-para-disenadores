@@ -9,6 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.jorge.kotlin_para_disenadores.constants.IdsDescripciones
 import com.jorge.kotlin_para_disenadores.databinding.ActivityMainBinding
+import com.jorge.kotlin_para_disenadores.managers.ManagerBusqueda
 import com.jorge.kotlin_para_disenadores.repositories.JsonRepository
 
 class MainActivity : AppCompatActivity() {
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         JsonRepository.init(this)
+        ManagerBusqueda(binding.busqueda).configurarOnSubmit()
 
         binding.mainActivity.setOnClickListener {
             mostrarDescripcion(IdsDescripciones.MAINACTIVITY)
