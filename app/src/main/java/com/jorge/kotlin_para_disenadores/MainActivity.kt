@@ -17,6 +17,7 @@ import androidx.core.text.scale
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.jorge.kotlin_para_disenadores.constants.IdsDescripciones
+import com.jorge.kotlin_para_disenadores.constants.UiConstantes
 import com.jorge.kotlin_para_disenadores.databinding.ActivityMainBinding
 import com.jorge.kotlin_para_disenadores.managers.ManagerBusqueda
 import com.jorge.kotlin_para_disenadores.repositories.JsonRepository
@@ -44,30 +45,100 @@ class MainActivity : AppCompatActivity() {
         cambiarColorIconosSearchView(Color.WHITE)
 
         binding.mainActivity.setOnClickListener {
+            activarVista(
+                binding.mainActivity,
+                binding.activityMain,
+                binding.andoridManifest,
+                binding.buildGradle,
+                binding.constructor,
+                binding.metodo,
+                binding.instancia
+            )
+
             mostrarDescripcion(IdsDescripciones.MAINACTIVITY, it)
         }
 
         binding.activityMain.setOnClickListener {
+            activarVista(
+                binding.activityMain,
+                binding.mainActivity,
+                binding.andoridManifest,
+                binding.buildGradle,
+                binding.constructor,
+                binding.metodo,
+                binding.instancia
+            )
+
             mostrarDescripcion(IdsDescripciones.ACTIVITY_MAIN_XML, it)
         }
 
         binding.andoridManifest.setOnClickListener {
+            activarVista(
+                binding.andoridManifest,
+                binding.mainActivity,
+                binding.activityMain,
+                binding.buildGradle,
+                binding.constructor,
+                binding.metodo,
+                binding.instancia
+            )
+
             mostrarDescripcion(IdsDescripciones.ANDROID_MANIFEST, it)
         }
 
         binding.buildGradle.setOnClickListener {
+            activarVista(
+                binding.buildGradle,
+                binding.mainActivity,
+                binding.activityMain,
+                binding.andoridManifest,
+                binding.constructor,
+                binding.metodo,
+                binding.instancia
+            )
+
             mostrarDescripcion(IdsDescripciones.GRADLE, it)
         }
 
         binding.constructor.setOnClickListener {
+            activarVista(
+                binding.constructor,
+                binding.mainActivity,
+                binding.activityMain,
+                binding.andoridManifest,
+                binding.buildGradle,
+                binding.metodo,
+                binding.instancia
+            )
+
             mostrarDescripcion(IdsDescripciones.CONSTRUCTOR, it)
         }
 
         binding.metodo.setOnClickListener {
+            activarVista(
+                binding.metodo,
+                binding.mainActivity,
+                binding.activityMain,
+                binding.andoridManifest,
+                binding.buildGradle,
+                binding.constructor,
+                binding.instancia
+            )
+
             mostrarDescripcion(IdsDescripciones.METODO, it)
         }
 
         binding.instancia.setOnClickListener {
+            activarVista(
+                binding.instancia,
+                binding.mainActivity,
+                binding.activityMain,
+                binding.andoridManifest,
+                binding.buildGradle,
+                binding.constructor,
+                binding.metodo,
+            )
+
             mostrarDescripcion(IdsDescripciones.INSTANCIA, it)
         }
 
@@ -143,5 +214,10 @@ class MainActivity : AppCompatActivity() {
         searchIcon.setColorFilter(colorIconos)
         closeIcon.setColorFilter(colorIconos)
         magIcon.setColorFilter(colorIconos)
+    }
+
+    fun activarVista(activa: View, vararg inactivas: View) {
+        activa.alpha = UiConstantes.ALPHA_ACTIVO
+        inactivas.forEach { it.alpha = UiConstantes.ALPHA_INACTIVO }
     }
 }
