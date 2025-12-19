@@ -15,7 +15,7 @@ data class Descripciones(
     val activitiesYCiclo: List<ActivitiesYCiclo>,
     @SerializedName("archivos_y_configuracion")
     val archivosYConfiguracion: List<ArchivosYConfiguracion>,
-    val botones: List<Botone>,
+    val botones: List<Botones>,
     @SerializedName("componentes_ui")
     val componentesUi: List<ComponentesUi>,
     @SerializedName("conceptos_fundamentales")
@@ -52,7 +52,7 @@ data class ArchivosYConfiguracion(
     override val titulo: String
 ) : Identificable
 
-data class Botone(
+data class Botones(
     override val descripcion: String,
     override val id: String,
     override val nivel: String,
