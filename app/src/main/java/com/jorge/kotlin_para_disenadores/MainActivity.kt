@@ -40,7 +40,8 @@ class MainActivity : AppCompatActivity() {
         JsonRepository.init(this)
         ManagerBusqueda(binding.busqueda).configurarOnSubmit()
 
-        cambiarColorSearchView(Color.WHITE)
+        cambiarColorSearchView(Color.WHITE, Color.LTGRAY)
+        cambiarColorIconosSearchView(Color.WHITE)
 
         binding.mainActivity.setOnClickListener {
             mostrarDescripcion(IdsDescripciones.MAINACTIVITY, it)
@@ -111,12 +112,17 @@ class MainActivity : AppCompatActivity() {
         imm.hideSoftInputFromWindow(windowToken, 0)
     }
 
-    fun cambiarColorSearchView(@ColorInt colorTexto: Int) {
+    fun cambiarColorSearchView(@ColorInt colorTexto: Int, @ColorInt colorHint: Int) {
         val editText =
             binding
                 .busqueda
                 .findViewById<EditText>(androidx.appcompat.R.id.search_src_text)
 
+        editText.setTextColor(colorTexto)
+        editText.setHintTextColor(colorHint)
+    }
+
+    fun cambiarColorIconosSearchView(@ColorInt colorIconos: Int) {
         // Cambiar color del ícono de búsqueda (lupa)
         val searchIcon =
             binding
@@ -134,9 +140,8 @@ class MainActivity : AppCompatActivity() {
                 .busqueda
                 .findViewById<ImageView>(androidx.appcompat.R.id.search_mag_icon)
 
-        searchIcon.setColorFilter(colorTexto)
-        closeIcon.setColorFilter(colorTexto)
-        magIcon.setColorFilter(colorTexto)
-        editText.setTextColor(colorTexto)
+        searchIcon.setColorFilter(colorIconos)
+        closeIcon.setColorFilter(colorIconos)
+        magIcon.setColorFilter(colorIconos)
     }
 }
