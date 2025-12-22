@@ -16,4 +16,5 @@ object JsonRepository {
     }
 
     fun getItemPorId(id: String) = mapaBusquedaPorId[id]
+    fun getTodosLosItems() = mapaBusquedaPorId
 }
