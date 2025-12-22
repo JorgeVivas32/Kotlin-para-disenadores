@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.util.Log
 import android.view.View
-import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
@@ -16,21 +15,58 @@ import androidx.core.text.italic
 import androidx.core.text.scale
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
+import com.jorge.kotlin_para_disenadores.constants.ConstantesTiempo
 import com.jorge.kotlin_para_disenadores.constants.IdsDescripciones
-import com.jorge.kotlin_para_disenadores.constants.UiConstantes
 import com.jorge.kotlin_para_disenadores.databinding.ActivityMainBinding
 import com.jorge.kotlin_para_disenadores.managers.ManagerBusqueda
+import com.jorge.kotlin_para_disenadores.managers.ResultadoBusqueda
 import com.jorge.kotlin_para_disenadores.repositories.JsonRepository
+import com.jorge.kotlin_para_disenadores.types.Identificable
+import com.jorge.kotlin_para_disenadores.utils.actualizarEstadoVistas
+import com.jorge.kotlin_para_disenadores.utils.ocultarTeclado
+import com.jorge.kotlin_para_disenadores.utils.scrollHastaArribaDelTodo
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var texto: SpannableStringBuilder
+    private lateinit var managerBusqueda: ManagerBusqueda
+
+    private val todasLasVistas by lazy {
+        listOf(
+            binding.mainActivity,
+            binding.activityMain,
+            binding.andoridManifest,
+            binding.buildGradle,
+            binding.constructor,
+            binding.metodo,
+            binding.instancia
+        )
+    }
+
+    // ✅ Map para relacionar vista con su ID de concepto
+    private val vistaAConcepto by lazy {
+        mapOf(
+            binding.mainActivity to IdsDescripciones.MAINACTIVITY,
+            binding.activityMain to IdsDescripciones.ACTIVITY_MAIN_XML,
+            binding.andoridManifest to IdsDescripciones.ANDROID_MANIFEST,
+            binding.buildGradle to IdsDescripciones.GRADLE,
+            binding.constructor to IdsDescripciones.CONSTRUCTOR,
+            binding.metodo to IdsDescripciones.METODO,
+            binding.instancia to IdsDescripciones.INSTANCIA
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
         texto = SpannableStringBuilder()
+        managerBusqueda = ManagerBusqueda(
+            searchView = binding.busqueda,
+            delayMilisegundos = ConstantesTiempo.DEBOUNCE_DELAY_EN_MILIEGUNDOS
+        )
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -39,142 +75,43 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Inicializar todos los elementos como "inactivos"
-        actualizarEstadoVistas(
-            inactivas = listOf(
-                binding.mainActivity,
-                binding.activityMain,
-                binding.andoridManifest,
-                binding.buildGradle,
-                binding.constructor,
-                binding.metodo,
-                binding.instancia
-            )
-        )
+        actualizarEstadoVistas(inactivas = todasLasVistas)
         JsonRepository.init(this)
-        ManagerBusqueda(binding.busqueda).configurarOnSubmit()
 
         cambiarColorSearchView(Color.WHITE, Color.LTGRAY)
         cambiarColorIconosSearchView(Color.WHITE)
 
-        binding.mainActivity.setOnClickListener {
-            actualizarEstadoVistas(
-                binding.mainActivity,
-                listOf(
-                    binding.activityMain,
-                    binding.andoridManifest,
-                    binding.buildGradle,
-                    binding.constructor,
-                    binding.metodo,
-                    binding.instancia
-                )
-            )
-
-            mostrarDescripcion(IdsDescripciones.MAINACTIVITY, it)
+        lifecycleScope.launch {
+            managerBusqueda.configurar(::manejarResultadoBusqueda)
         }
 
-        binding.activityMain.setOnClickListener {
-            actualizarEstadoVistas(
-                binding.activityMain,
-                listOf(
-                    binding.mainActivity,
-                    binding.andoridManifest,
-                    binding.buildGradle,
-                    binding.constructor,
-                    binding.metodo,
-                    binding.instancia
-                )
-            )
 
-            mostrarDescripcion(IdsDescripciones.ACTIVITY_MAIN_XML, it)
-        }
-
-        binding.andoridManifest.setOnClickListener {
-            actualizarEstadoVistas(
-                binding.andoridManifest,
-                listOf(
-                    binding.mainActivity,
-                    binding.activityMain,
-                    binding.buildGradle,
-                    binding.constructor,
-                    binding.metodo,
-                    binding.instancia
-                )
-            )
-
-            mostrarDescripcion(IdsDescripciones.ANDROID_MANIFEST, it)
-        }
-
-        binding.buildGradle.setOnClickListener {
-            actualizarEstadoVistas(
-                binding.buildGradle,
-                listOf(
-                    binding.mainActivity,
-                    binding.activityMain,
-                    binding.andoridManifest,
-                    binding.constructor,
-                    binding.metodo,
-                    binding.instancia
-                )
-            )
-
-            mostrarDescripcion(IdsDescripciones.GRADLE, it)
-        }
-
-        binding.constructor.setOnClickListener {
-            actualizarEstadoVistas(
-                binding.constructor,
-                listOf(
-                    binding.mainActivity,
-                    binding.activityMain,
-                    binding.andoridManifest,
-                    binding.buildGradle,
-                    binding.metodo,
-                    binding.instancia
-                )
-            )
-
-            mostrarDescripcion(IdsDescripciones.CONSTRUCTOR, it)
-        }
-
-        binding.metodo.setOnClickListener {
-            actualizarEstadoVistas(
-                binding.metodo,
-                listOf(
-                    binding.mainActivity,
-                    binding.activityMain,
-                    binding.andoridManifest,
-                    binding.buildGradle,
-                    binding.constructor,
-                    binding.instancia
-                )
-            )
-
-            mostrarDescripcion(IdsDescripciones.METODO, it)
-        }
-
-        binding.instancia.setOnClickListener {
-            actualizarEstadoVistas(
-                binding.instancia,
-                listOf(
-                    binding.mainActivity,
-                    binding.activityMain,
-                    binding.andoridManifest,
-                    binding.buildGradle,
-                    binding.constructor,
-                    binding.metodo,
-                )
-            )
-
-            mostrarDescripcion(IdsDescripciones.INSTANCIA, it)
-        }
+        configurarClicksVistas()
 
         binding.limpiarPantalla.setOnClickListener {
+            actualizarEstadoVistas(inactivas = todasLasVistas)
+            managerBusqueda.limpiar()
             binding.pantallaDescripcion.text = ""
+        }
+    }
+
+    fun configurarClicksVistas() {
+        todasLasVistas.forEach { vista ->
+            vista.setOnClickListener {
+                // Obtener todas las vistas excepto la actual
+                val inactivas = todasLasVistas.filter { it != vista }
+                actualizarEstadoVistas(activa = vista, inactivas = inactivas)
+
+                // Obtener el ID del concepto desde el map
+                val conceptoId = vistaAConcepto[vista] ?: return@setOnClickListener
+                mostrarDescripcion(conceptoId, vista)
+            }
         }
     }
 
     fun mostrarDescripcion(id: String, view: View) {
         view.ocultarTeclado()
+        managerBusqueda.limpiar()
 
         val item = JsonRepository.getItemPorId(id)
 
@@ -184,7 +121,14 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        scrollHastaArribaDelTodo()
+        binding.scrollDescripcion.scrollHastaArribaDelTodo()
+        mostrarConcepto(item)
+    }
+
+    fun mostrarConcepto(item: Identificable) {
+        binding.scrollDescripcion.scrollHastaArribaDelTodo()
+        binding.busqueda.ocultarTeclado()
+
         texto.clear()
 
         texto.bold { appendLine(item.titulo) }
@@ -197,16 +141,12 @@ class MainActivity : AppCompatActivity() {
         binding.pantallaDescripcion.text = texto
     }
 
-    fun scrollHastaArribaDelTodo() {
-        binding.scrollDescripcion.post {
-            binding.scrollDescripcion.fullScroll(View.FOCUS_UP)
-            binding.scrollDescripcion.smoothScrollTo(0, 0)
-        }
-    }
+    fun mostrarMultiplesResultados(items: Collection<Identificable>) {
+        // TODO: "Añadir la lógica para manejar múltimples resultados"
 
-    fun View.ocultarTeclado() {
-        val imm = context.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(windowToken, 0)
+        binding.scrollDescripcion.scrollHastaArribaDelTodo()
+
+        Log.i("MainActivity", "Añadir la lógica para manejar múltimples resultados")
     }
 
     fun cambiarColorSearchView(@ColorInt colorTexto: Int, @ColorInt colorHint: Int) {
@@ -242,8 +182,24 @@ class MainActivity : AppCompatActivity() {
         magIcon.setColorFilter(colorIconos)
     }
 
-    fun actualizarEstadoVistas(activa: View? = null, inactivas: Collection<View>) {
-        activa?.alpha = UiConstantes.ALPHA_ACTIVO
-        inactivas.forEach { it.alpha = UiConstantes.ALPHA_INACTIVO }
+    fun manejarResultadoBusqueda(resultado: ResultadoBusqueda) {
+        when (resultado) {
+            is ResultadoBusqueda.Encontrado -> {
+                binding.busqueda.ocultarTeclado()
+                mostrarConcepto(resultado.item)
+                actualizarEstadoVistas(inactivas = todasLasVistas)
+            }
+
+            is ResultadoBusqueda.Multiples -> {
+                mostrarMultiplesResultados(resultado.items)
+                actualizarEstadoVistas(inactivas = todasLasVistas)
+            }
+
+            is ResultadoBusqueda.NoEncontrado -> {
+                binding.pantallaDescripcion.text =
+                    "Tu búsqueda \"${resultado.query}\" no ha obtnenido resultados"
+                actualizarEstadoVistas(inactivas = todasLasVistas)
+            }
+        }
     }
 }
